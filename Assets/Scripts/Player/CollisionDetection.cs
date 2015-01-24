@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class collisionDetection : MonoBehaviour 
+public class CollisionDetection : MonoBehaviour 
 {
 
 	PlayerScore score;
@@ -20,8 +20,9 @@ public class collisionDetection : MonoBehaviour
 	{
 		if (coll.gameObject.layer == LayerMask.NameToLayer("mouse"))
 		{
-
+			Debug.Log("Collision");
 			coll.gameObject.GetComponent<Dead>().isDead = true;
+			GetComponent<PlayerScore>().AddScore(1000);
 		}
 	}
 }

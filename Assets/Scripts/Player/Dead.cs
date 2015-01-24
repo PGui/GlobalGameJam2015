@@ -17,12 +17,15 @@ public class Dead : MonoBehaviour {
 		if(isDead)
 		{
 			collider2D.enabled = false;
+			transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;// transform.localScale.Set(0.5f,0.5f,0.0f);
 		}
 		else 
 		{
 			if(collider2D.enabled == false)
 			{
 				collider2D.enabled = true;
+				transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+				//transform.GetChild(1).transform.localScale.Set(1.0f,1.0f,0.0f);
 			}
 			
 		}
