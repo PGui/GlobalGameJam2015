@@ -62,7 +62,7 @@ public class ObjectiveManager : MonoBehaviour
 			if(time >= timeBeforeObjective)
 			{
 				time = 0.0f;
-				int icurrentObjective = Random.Range(2,(int)eObjectives.SIZE);
+				int icurrentObjective = Random.Range(0,(int)eObjectives.SIZE);
 				currentObjective = (eObjectives)icurrentObjective;
 				//currentObjective = Random.Range(0,eObjectives.SIZE);
 				m_needDisplayObjectiveText = true;
@@ -77,10 +77,10 @@ public class ObjectiveManager : MonoBehaviour
 			timeElapsedTimesUp += Time.deltaTime;
 
 			//Revive all the players
-			foreach(GameObject p in m_players)
-			{
-				p.gameObject.GetComponent<Dead>().isDead = false;
-			}//foreach
+			//foreach(GameObject p in m_players)
+			//{
+			//	p.gameObject.GetComponent<Dead>().isDead = false;
+			//}//foreach
 		}
 		else//Si on rentre dans un nouveau objectif
 		{

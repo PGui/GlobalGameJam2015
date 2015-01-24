@@ -18,6 +18,7 @@ public class Dead : MonoBehaviour {
 		{
 			collider2D.enabled = false;
 			transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;// transform.localScale.Set(0.5f,0.5f,0.0f);
+			gameObject.rigidbody2D.velocity = Vector2.zero;
 		}
 		else 
 		{

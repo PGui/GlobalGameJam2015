@@ -54,6 +54,8 @@ public class BigBall : MonoBehaviour {
 		//Give points to the players alive
 		foreach(GameObject p in m_players)
 		{
+			p.rigidbody2D.velocity = Vector2.zero;
+
 			if(!p.gameObject.GetComponent<Dead>().isDead)
 			{
 				p.GetComponent<PlayerScore>().AddScore(1000);
@@ -76,3 +78,4 @@ public class BigBall : MonoBehaviour {
 	}
 
 }
+

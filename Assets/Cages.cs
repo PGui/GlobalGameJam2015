@@ -25,7 +25,6 @@ public class Cages : MonoBehaviour
 		if(!enterOnce && other.gameObject.tag == "football")
 		{
 			enterOnce = true;
-			Debug.Log("Goal");
 			if(gameObject.tag == "campRouge")
 			{
 				foreach(GameObject p in m_players)

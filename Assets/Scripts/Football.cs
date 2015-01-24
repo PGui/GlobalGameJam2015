@@ -84,7 +84,7 @@ public class Football : MonoBehaviour
 			var randomNumbers = new int[m_players.Length];
 			for (int i = 0; i < randomNumbers.Length; i++) 
 			{
-				var thisNumber = Random.Range(0, numbers.Count);
+				int thisNumber = Random.Range(0, numbers.Count);
 				if(redLeft > 0)
 				{
 					m_players[i].gameObject.layer = LayerMask.NameToLayer("red");

@@ -35,6 +35,7 @@ public class BallMng : MonoBehaviour {
 		if (coll.gameObject.tag == "Player")
 		{
 			coll.gameObject.GetComponent<Dead>().isDead = true;
+			coll.gameObject.rigidbody2D.velocity = Vector2.zero;
 		}
 	}
 }
