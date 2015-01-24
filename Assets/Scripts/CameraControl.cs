@@ -22,6 +22,7 @@ public class CameraControl : MonoBehaviour {
 			{
 				avgPos.x += p.transform.position.x;
 				avgPos.y += p.transform.position.y;
+
 			}
 			avgPos /= m_players.Length;
 			this.transform.position = avgPos;
