@@ -50,17 +50,20 @@ public class PlayerManager : MonoBehaviour
         m_playerVictory = false;
     }
 
-	IEnumerator SpawnPlayers() {
-		yield return new WaitForSeconds(1);
+	//Coroutine pour le spawn des joueurs
+	IEnumerator SpawnPlayers() 
+	{
+		yield return new WaitForSeconds(0.2f);
 		m_SpawnerTab = GameObject.FindGameObjectsWithTag("Spawner");
 		for (int i = 0; i < m_maxPlayers; ++i)
 		{
 			if (m_playersIDs[i])//If the player is here
 			{
-				
 				GameObject player = Object.Instantiate(playerPrefab, m_SpawnerTab[i].transform.position, Quaternion.identity) as GameObject;//Instanciate the player at a 
 				player.GetComponent<PlayerID>().SetID(i + 1);//Set his ID
 				player.GetComponent<Twinkle>().enabled = true;
+
+				Debug.Log(player.GetComponent<PlayerID>().GetPlayerID());
 				//player.GetComponent<PlayerControl>().m_hasControl = false;
 				
 				//return i + 1;//Return the id of the player
