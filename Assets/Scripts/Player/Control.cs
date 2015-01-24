@@ -40,7 +40,7 @@ public class Control : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{ 
-		if(m_canDash && Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing)
+		if(m_canDash && Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing && !GetComponent<Dead>().isDead)
 		{
 			m_isDashing = true;
 			timeElapsedDash = 0.0f;
@@ -50,11 +50,12 @@ public class Control : MonoBehaviour
 			//Debug.Log("---Dashing---");
 		}
 
+		transform.position.Set(transform.position.x,transform.position.y,transform.position.y +100);
 	}
 
 	void FixedUpdate()
 	{
-		if(m_hasControl)
+		if(m_hasControl && !GetComponent<Dead>().isDead)
 		{
 			//Get the stick input
 			m_moveInput = new Vector2(Input.GetAxis("P" + m_playerID.ToString() + " LHorizontal"), Input.GetAxis("P" + m_playerID.ToString() + " LVertical"));

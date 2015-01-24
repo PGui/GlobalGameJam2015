@@ -40,7 +40,12 @@ public class MenuPause : MonoBehaviour {
                 {
                     m_paused = !m_paused;
                     m_playerManager.ResetToMenu();
-					GameObject.Destroy(GameObject.Find("PlayersManager"));
+					//GameObject[] pm = GameObject.FindGameObjectsWithTag("PlayersManager");
+					//foreach(GameObject p in pm)
+					//{
+					//	GameObject.Destroy(p);
+					//}
+
                     Application.LoadLevel("Menu");
 
                 }

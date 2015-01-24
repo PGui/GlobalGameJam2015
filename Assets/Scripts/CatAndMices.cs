@@ -11,6 +11,7 @@
 		public Sprite teamRed;
 
 		GameObject[] m_players;
+
 		GameObject m_cat;
 
 		public float m_NewCatSpeed = 15.0f;

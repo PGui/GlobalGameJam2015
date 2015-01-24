@@ -21,7 +21,6 @@ public class CollisionDetection : MonoBehaviour
 		//Cat and mices
 		if (coll.gameObject.layer == LayerMask.NameToLayer("mouse") && gameObject.layer == LayerMask.NameToLayer("cat"))
 		{
-			Debug.Log("Collision");
 			coll.gameObject.GetComponent<Dead>().isDead = true;
 			GetComponent<PlayerScore>().AddScore(1000);
 		}

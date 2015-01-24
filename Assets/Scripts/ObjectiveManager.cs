@@ -8,7 +8,7 @@ public class ObjectiveManager : MonoBehaviour
 		NONE = -1,
 		CAT_AND_MICE,
 		LITTLE_BALLS,
-
+		FOOTBALL,
 		//BIG_BALLS,
 		//ROOF,
 		//FIRE,
@@ -37,6 +37,7 @@ public class ObjectiveManager : MonoBehaviour
 	//Scripts Objectives
 	CatAndMices scriptCatAndMices;
 	BigBall scriptBigBalls;
+	Football scriptFoot;
 
 	// Use this for initialization
 	void Start () 
@@ -48,6 +49,7 @@ public class ObjectiveManager : MonoBehaviour
 		currentObjective = eObjectives.NONE;
 		scriptCatAndMices = GetComponent<CatAndMices>();
 		scriptBigBalls = GetComponent<BigBall>();
+		scriptFoot = GetComponent<Football>();
 
 		m_players = GameObject.FindGameObjectsWithTag("Player");
 	}
@@ -60,7 +62,7 @@ public class ObjectiveManager : MonoBehaviour
 			if(time >= timeBeforeObjective)
 			{
 				time = 0.0f;
-				int icurrentObjective = Random.Range(0,(int)eObjectives.SIZE);
+				int icurrentObjective = Random.Range(2,(int)eObjectives.SIZE);
 				currentObjective = (eObjectives)icurrentObjective;
 				//currentObjective = Random.Range(0,eObjectives.SIZE);
 				m_needDisplayObjectiveText = true;
@@ -93,6 +95,9 @@ public class ObjectiveManager : MonoBehaviour
 				case eObjectives.LITTLE_BALLS:
 					m_objectiveText.text = scriptBigBalls.Phrase;
 					break;
+				case eObjectives.FOOTBALL:
+					m_objectiveText.text = scriptFoot.Phrase;
+					break;
 				default:
 					Debug.Log("Objective error");
 					break;
@@ -112,6 +117,10 @@ public class ObjectiveManager : MonoBehaviour
 				case eObjectives.LITTLE_BALLS:
 					m_objectiveText.enabled = false;
 					scriptBigBalls.enabled = true;
+					break;
+				case eObjectives.FOOTBALL:
+					m_objectiveText.enabled = false;
+					scriptFoot.enabled = true;
 					break;
 				default:
 					Debug.Log("Objective error");
