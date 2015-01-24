@@ -38,56 +38,63 @@ public class Control : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		if(Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing)
+		{
+			m_isDashing = true;
+			timeElapsedDash = 0.0f;
+			m_dashDirection = m_moveInput;
+			m_dashDirection.Normalize();
+			//rigidbody2D.velocity = Vector2.zero;
+			//Debug.Log("---Dashing---");
+		}
 	}
 
 	void FixedUpdate()
 	{
 		if(m_hasControl)
 		{
+			//Get the stick input
 			m_moveInput = new Vector2(Input.GetAxis("P" + m_playerID.ToString() + " LHorizontal"), Input.GetAxis("P" + m_playerID.ToString() + " LVertical"));
-			//m_moveInput.Normalize();
-			Vector2 currentVel = rigidbody2D.velocity;
-			//Si le player essai de bouger
-			if(m_moveInput.SqrMagnitude() > 0.2f)
+
+			//Dash
+
+
+
+			//Si le player bouge
+			if(m_moveInput.SqrMagnitude() > 0.2f && !m_isDashing)
 			{
 				speed = Mathf.Min( speed + m_accel, m_maxSpeed);
-				currentVel = speed * m_moveInput;
+				rigidbody2D.velocity = speed * m_moveInput;
 			}
-			else//Sinon il deccelere
+			else if(!m_isDashing)//Sinon il deccelere
 			{
-				currentVel *= m_deaccel;
+				rigidbody2D.velocity *= m_deaccel;
 			}
 
-
-			if(Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing && m_moveInput.SqrMagnitude() > 0.01f)
-			{
-				m_isDashing = true;
-				timeElapsedDash = 0.0f;
-				m_dashDirection = m_moveInput;
-				m_dashDirection.Normalize();
-				rigidbody2D.velocity = Vector2.zero;
-				//Debug.Log("You can't dash !!");
-			}
-
-
+			//Si le joueur dash
 			if(m_isDashing)
 			{
+				//rigidbody2D.velocity = m_dashDirection*
 				rigidbody2D.AddForce(m_dashDirection*m_forceDash,ForceMode2D.Force);
 			}
 
-
 			//applyThe good velocity
-			rigidbody2D.velocity = currentVel;
+			//rigidbody2D.velocity = currentVel;
+
+			//Si on est en train de dasher
+			if(m_isDashing && (timeElapsedDash > dashTime))
+			{
+				m_isDashing = false;
+				//Debug.Log("You can dash again");
+			}
+			else if(m_isDashing)
+			{
+				timeElapsedDash += Time.deltaTime;
+			}
+			
+
 		}
 
-		//Si on est en train de dasher
-		if(m_isDashing && (timeElapsedDash > dashTime))
-		{
-			m_isDashing = false;
-			Debug.Log("You can dash again");
-		}
 
-		timeElapsedDash += Time.deltaTime;
 	}
 }
