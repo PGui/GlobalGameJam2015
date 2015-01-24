@@ -127,10 +127,11 @@ public class PlayerManager : MonoBehaviour
 
         if (_debug)
         {
+			//StartCoroutine("SpawnPlayers");
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject p in players)
             {
-                p.GetComponent<PlayerControl>().m_hasControl = true;
+                p.GetComponent<Control>().m_hasControl = true;
             }
         }
 

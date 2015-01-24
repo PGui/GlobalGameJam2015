@@ -12,6 +12,7 @@ public class Twinkle : MonoBehaviour {
     public bool _debug = false;
 
     private GameObject PlayerName;
+	private GameObject PlayerRenderer;
 
 	// Use this for initialization
     void OnEnable() 
@@ -32,6 +33,15 @@ public class Twinkle : MonoBehaviour {
              }
          }
 
+		//Get the player renderer
+		foreach (Transform t in transform)
+		{
+			if(t.name == "PlayerRenderer")
+			{
+				PlayerRenderer = t.gameObject;
+			}
+		}
+
         PlayerName.renderer.enabled = true;
         PlayerName.GetComponent<TextMesh>().text = "P "+ GetComponent<PlayerID>().GetPlayerID().ToString();
 	}
@@ -41,11 +51,11 @@ public class Twinkle : MonoBehaviour {
     {
         if (Mathf.Sin(twinkleTime) > 0)
         {
-            renderer.enabled = true;
+			PlayerRenderer.renderer.enabled = true;
         }
         else
         {
-            renderer.enabled = false;
+			PlayerRenderer.renderer.enabled = false;
         }
 
         twinkleTime += Time.deltaTime * twinkleSpeed;
@@ -56,7 +66,7 @@ public class Twinkle : MonoBehaviour {
         {
             this.GetComponent<Control>().m_hasControl = true;
             PlayerName.renderer.enabled = false;
-            renderer.enabled = true;
+			PlayerRenderer.renderer.enabled = true;
             enabled = false;
         }
 	
