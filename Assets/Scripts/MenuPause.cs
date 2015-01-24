@@ -19,7 +19,7 @@ public class MenuPause : MonoBehaviour {
             Debug.Log("Can't get PlayerManager in MenuPause");
         }
 
-        m_maxPlayers = m_playerManager.GetMaxPlayer();// = 2 for the moment
+        m_maxPlayers = m_playerManager.GetMaxPlayer();
 	}
 	
 	// Update is called once per frame
@@ -33,7 +33,7 @@ public class MenuPause : MonoBehaviour {
                 if (Input.GetButtonDown("P" + (i + 1).ToString() + " Start") && m_playerManager.GetPlayerTab()[i])
                 {
                     m_paused = !m_paused;
-                    GameObject.Destroy(GameObject.Find("PlayersManager"));
+                    //GameObject.Destroy(GameObject.Find("PlayersManager"));
                 }
 
                 if (m_paused && Input.GetButtonUp("P" + (i + 1).ToString() + " B") && m_playerManager.GetPlayerTab()[i])

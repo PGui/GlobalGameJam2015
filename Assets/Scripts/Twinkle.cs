@@ -18,12 +18,12 @@ public class Twinkle : MonoBehaviour {
     {
         twinkleTime = 0.0f;
         time = 0.0f;
-		/*
+
         if(!_debug)
-            this.GetComponent<PlayerControl>().m_hasControl = false;
+            this.GetComponent<Control>().m_hasControl = false;
         else
-            this.GetComponent<PlayerControl>().m_hasControl = true;
-		*/
+			this.GetComponent<Control>().m_hasControl = true;
+
         foreach (Transform t in transform)
          {
              if(t.name == "PlayerName")
@@ -54,7 +54,7 @@ public class Twinkle : MonoBehaviour {
 
         if (time >= twinkleDuration)
         {
-           // this.GetComponent<PlayerControl>().m_hasControl = true;
+            this.GetComponent<Control>().m_hasControl = true;
             PlayerName.renderer.enabled = false;
             renderer.enabled = true;
             enabled = false;
