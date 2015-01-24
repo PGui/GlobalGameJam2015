@@ -23,27 +23,29 @@ public class InGameInterface : MonoBehaviour {
         if (!_debug)
         {
             PM = GameObject.Find("PlayersManager").GetComponent<PlayerManager>();
-           // m_players = GameObject.Find("SpawnerManager").GetComponent<SpawnerManager>().m_players;
+			//StartCoroutine("GetPlayers");
         }
-       
 	}
 
     void Start()
     {
         if (_debug)
         {
-            PM = GameObject.Find("DEBUGPlayerManager").GetComponent<PlayerManager>();
-            m_players = GameObject.Find("SpawnerManager").GetComponent<SpawnerManager>().m_players;
+			PM = GameObject.Find("PlayersManager").GetComponent<PlayerManager>();
+			//StartCoroutine("GetPlayers");
         }
     }
 	
 	// Update is called once per frame
 	void Update () 
     {
-
         ratioX = Screen.width / 1920.0f;
         ratioY = Screen.width / 1080.0f;
 
+		if(m_players == null)
+		{
+			m_players = GameObject.FindGameObjectsWithTag("Player");
+		}
 		/*
         if (PM.m_playerVictory)
         {
@@ -91,8 +93,10 @@ public class InGameInterface : MonoBehaviour {
     {
         GUI.skin = mySkin;
         Color oldColor = GUI.color;
-		/*
-        if (!PM.m_playerVictory)
+
+		PM.m_playerVictory = false;
+
+		if (!PM.m_playerVictory && m_players != null)
         {
             if (m_players.Length >= 1)
             {
@@ -124,6 +128,12 @@ public class InGameInterface : MonoBehaviour {
             GUI.Box(new Rect(Screen.width / 2 - 300.0f / 2, Screen.height / 2 - 100.0f / 2 + 100.0f, 300.0f, 100.0f), "Start to Restart\nB to Menu");
         
         }
-        */
+
     }
+
+	IEnumerator GetPlayers() 
+	{
+		yield return new WaitForSeconds(0.2f);
+		m_players = GameObject.FindGameObjectsWithTag("Player");
+	}
 }
