@@ -69,6 +69,7 @@ public class PlayerManager : MonoBehaviour
 			}
 		}
 		//GameObject.Find("SpawnerManager").GetComponent<SpawnerManager>().enabled = true;
+		m_players = GameObject.FindGameObjectsWithTag("Player");
 		GameObject.Find("InGameInterface").GetComponent<InGameInterface>().enabled = true;
 	}
 
