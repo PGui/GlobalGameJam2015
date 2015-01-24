@@ -4,14 +4,14 @@ using System.Collections;
 public class Cages : MonoBehaviour 
 {
 	Football spFootball;
-	bool enterOnce = false;
+	public bool enterOnce {get; set;} 
 
 	GameObject[] m_players;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		enterOnce = false;
 	}
 	
 	// Update is called once per frame

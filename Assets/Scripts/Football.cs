@@ -42,6 +42,8 @@ public class Football : MonoBehaviour
 			if(child.gameObject.name == "Camp")
 			{
 				child.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+				child.gameObject.GetComponent<Cages>().enterOnce = false;
+
 			}
 
 			if(child.gameObject.name == "FootballSpawner")
@@ -162,6 +164,7 @@ public class Football : MonoBehaviour
 			if(child.gameObject.name == "Camp")
 			{
 				child.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				child.gameObject.GetComponent<Cages>().enterOnce = false;
 			}
 		}
 
