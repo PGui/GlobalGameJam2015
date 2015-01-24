@@ -18,6 +18,7 @@ public class Control : MonoBehaviour
 	public  bool m_hasControl  {get; set;}
 	private Vector2 m_moveInput;
 
+	public bool m_canDash {get; set;}
 	private bool m_isDashing {get; set;}
 	public float dashTime = 1.0f;
 	public float m_forceDash = 500.0f;
@@ -32,13 +33,14 @@ public class Control : MonoBehaviour
 
 		m_hasControl = false;
 
+		m_canDash = true;
 		m_isDashing = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing)
+		if(m_canDash && Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing)
 		{
 			m_isDashing = true;
 			timeElapsedDash = 0.0f;
