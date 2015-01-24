@@ -5,8 +5,8 @@ public class CameraMgr : MonoBehaviour
 {
 	public int m_size = 9;
 
-	public int m_width  = 1024;
-	public int m_height = 576;
+	public int m_width  = 1920;
+	public int m_height = 1080;
 
 //	private float m_shakeElapsed = 0.0f;
 //	private float m_shakeTime = 0.0f;

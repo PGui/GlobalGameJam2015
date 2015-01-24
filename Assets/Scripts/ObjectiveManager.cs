@@ -6,11 +6,13 @@ public class ObjectiveManager : MonoBehaviour
 	public enum eObjectives
 	{
 		NONE = -1,
-		CAT_AND_MICE = 0,
+		CAT_AND_MICE,
+		LITTLE_BALLS,
+
 		//BIG_BALLS,
 		//ROOF,
 		//FIRE,
-		//LITTLE_BALLS,
+
 
 		SIZE
 	}
@@ -30,9 +32,11 @@ public class ObjectiveManager : MonoBehaviour
 	public bool m_needDisplayTimesUp {get; set;}
 	private float timeElapsedTimesUp = 0.0f;
 
+	GameObject[] m_players;
 
 	//Scripts Objectives
 	CatAndMices scriptCatAndMices;
+	BigBall scriptBigBalls;
 
 	// Use this for initialization
 	void Start () 
@@ -43,12 +47,15 @@ public class ObjectiveManager : MonoBehaviour
 
 		currentObjective = eObjectives.NONE;
 		scriptCatAndMices = GetComponent<CatAndMices>();
+		scriptBigBalls = GetComponent<BigBall>();
+
+		m_players = GameObject.FindGameObjectsWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(currentObjective == eObjectives.NONE && !m_needDisplayTimesUp)
+		if(currentObjective == eObjectives.NONE && !m_needDisplayTimesUp)//Si aucun Objectif
 		{
 			if(time >= timeBeforeObjective)
 			{
@@ -56,19 +63,24 @@ public class ObjectiveManager : MonoBehaviour
 				int icurrentObjective = Random.Range(0,(int)eObjectives.SIZE);
 				currentObjective = (eObjectives)icurrentObjective;
 				//currentObjective = Random.Range(0,eObjectives.SIZE);
-				//Debug.Log("New Objective ! = " + currentObjective);
 				m_needDisplayObjectiveText = true;
 			}
 			else
 				time += Time.deltaTime;
 		}
-		else if(m_needDisplayTimesUp)
+		else if(m_needDisplayTimesUp)//Si on affiche la fin d'un objectif
 		{
 			m_objectiveText.enabled = true;
 			m_objectiveText.text = "Time's Up";
 			timeElapsedTimesUp += Time.deltaTime;
+
+			//Revive all the players
+			foreach(GameObject p in m_players)
+			{
+				p.gameObject.GetComponent<Dead>().isDead = false;
+			}//foreach
 		}
-		else
+		else//Si on rentre dans un nouveau objectif
 		{
 			if(m_needDisplayObjectiveText && (timeElapsedObjectiveText < m_timeDisplayObjectiveText))
 			{
@@ -77,6 +89,9 @@ public class ObjectiveManager : MonoBehaviour
 				{
 				case eObjectives.CAT_AND_MICE:
 					m_objectiveText.text = scriptCatAndMices.Phrase;
+					break;
+				case eObjectives.LITTLE_BALLS:
+					m_objectiveText.text = scriptBigBalls.Phrase;
 					break;
 				default:
 					Debug.Log("Objective error");
@@ -94,6 +109,10 @@ public class ObjectiveManager : MonoBehaviour
 					m_objectiveText.enabled = false;
 					scriptCatAndMices.enabled = true;
 					break;
+				case eObjectives.LITTLE_BALLS:
+					m_objectiveText.enabled = false;
+					scriptBigBalls.enabled = true;
+					break;
 				default:
 					Debug.Log("Objective error");
 					break;
@@ -101,7 +120,7 @@ public class ObjectiveManager : MonoBehaviour
 			}
 		}
 
-
+		//Stop displaying time's up
 		if(m_needDisplayTimesUp && timeElapsedTimesUp >= m_timeDisplayTimesUp)
 		{
 			m_objectiveText.enabled = false;

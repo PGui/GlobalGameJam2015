@@ -24,6 +24,7 @@ public class InGameInterface : MonoBehaviour {
         {
             PM = GameObject.Find("PlayersManager").GetComponent<PlayerManager>();
 			//StartCoroutine("GetPlayers");
+
         }
 	}
 

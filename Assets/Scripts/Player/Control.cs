@@ -39,7 +39,7 @@ public class Control : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () 
-	{
+	{ 
 		if(m_canDash && Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing)
 		{
 			m_isDashing = true;
@@ -49,6 +49,7 @@ public class Control : MonoBehaviour
 			//rigidbody2D.velocity = Vector2.zero;
 			//Debug.Log("---Dashing---");
 		}
+
 	}
 
 	void FixedUpdate()
@@ -59,7 +60,6 @@ public class Control : MonoBehaviour
 			m_moveInput = new Vector2(Input.GetAxis("P" + m_playerID.ToString() + " LHorizontal"), Input.GetAxis("P" + m_playerID.ToString() + " LVertical"));
 
 			//Dash
-
 
 
 			//Si le player bouge
