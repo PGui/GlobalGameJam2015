@@ -9,9 +9,9 @@ public class BallMng : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		direction = new Vector2(Random.Range(0,100), Random.Range(0,100));
+		direction = new Vector2(Random.Range(-100,100), Random.Range(-100,100));
 		direction.Normalize();
-		rigidbody2D.AddForce(new Vector2( 1,1));
+		rigidbody2D.AddForce(direction*8.0f);
 	}
 	
 	// Update is called once per frame

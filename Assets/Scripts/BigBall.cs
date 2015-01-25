@@ -21,8 +21,8 @@ public class BigBall : MonoBehaviour {
 	{
 		Sprite terrainSprite = GameObject.Find("Terrrain").GetComponent<SpriteRenderer>().sprite;
 
-		Vector2 posBall = new Vector2(Random.Range(terrainSprite.bounds.min.x + 10, terrainSprite.bounds.max.x -10),
-		                              Random.Range(terrainSprite.bounds.min.y + 10, terrainSprite.bounds.max.y -10));
+		Vector2 posBall = new Vector2(Random.Range(terrainSprite.bounds.min.x + 5, terrainSprite.bounds.max.x -5),
+		                              Random.Range(terrainSprite.bounds.min.y + 5, terrainSprite.bounds.max.y -5));
 
 		//Ball spawn
 		Theball = GameObject.Instantiate(ball,posBall,Quaternion.identity) as GameObject ;

@@ -6,7 +6,7 @@ public class InGameInterface : MonoBehaviour {
     private GameObject[] m_players;
 
     private int rectWidth = 150;
-    private int rectHeight = 30;
+    private int rectHeight = 70;
 
     PlayerManager PM;
 
@@ -101,26 +101,30 @@ public class InGameInterface : MonoBehaviour {
         {
             if (m_players.Length >= 1)
             {
-                GUI.color = Color.cyan;
-                GUI.Box(new Rect(0, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 1 \n " + m_players[0].GetComponent<PlayerScore>().m_playerScore.ToString());
+				Color col = new Color(0.51f,0.929f,0.709f);
+				GUI.color = col;
+				GUI.Box(new Rect((Screen.width/4.0f) * 1.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 1 \n " + m_players[0].GetComponent<PlayerScore>().m_playerScore.ToString());
             }
 
             if (m_players.Length >= 2)
             {
-                GUI.color = Color.red;
-                GUI.Box(new Rect((Screen.width/4.0f) * 1.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 2 \n " + m_players[1].GetComponent<PlayerScore>().m_playerScore.ToString());
+				Color col = new Color(0.709f,0.007f,0.07f);
+				GUI.color = col;
+				GUI.Box(new Rect((Screen.width/4.0f) * 2.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 2 \n " + m_players[1].GetComponent<PlayerScore>().m_playerScore.ToString());
             }
 
             if (m_players.Length >= 3)
             {
-                GUI.color = Color.yellow;
-				GUI.Box(new Rect((Screen.width/4.0f) * 2.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 3 \n " + m_players[2].GetComponent<PlayerScore>().m_playerScore.ToString());
+				Color col =    new Color(0.470f,0.830f,0.8940f);
+				GUI.color = col;
+				GUI.Box(new Rect((Screen.width/4.0f) * 3.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 3 \n " + m_players[2].GetComponent<PlayerScore>().m_playerScore.ToString());
             }
 
             if (m_players.Length >= 4)
             {
-                GUI.color = Color.green;
-				GUI.Box(new Rect((Screen.width/4.0f) * 3.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 4 \n " + m_players[3].GetComponent<PlayerScore>().m_playerScore.ToString());
+				Color col =   new Color(1.0f,0.890f,0.4860f);
+				GUI.color = col;
+				GUI.Box(new Rect((Screen.width/4.0f) * 4.0f * ratioX, 0, rectWidth * ratioX, rectHeight * ratioY), "Player 4 \n " + m_players[3].GetComponent<PlayerScore>().m_playerScore.ToString());
             }
         }
         else
