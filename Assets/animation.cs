@@ -18,5 +18,6 @@ public class animation : MonoBehaviour {
 	{
 		controller.SetFloat("speed",player.rigidbody2D.velocity.magnitude);
 		controller.SetBool("dashing",player.GetComponent<Control>().m_isDashing);
+		controller.SetBool("dead",player.GetComponent<Dead>().isDead);
 	}
 }

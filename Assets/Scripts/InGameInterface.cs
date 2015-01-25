@@ -5,8 +5,8 @@ public class InGameInterface : MonoBehaviour {
 
     private GameObject[] m_players;
 
-    private int rectWidth = 150;
-    private int rectHeight = 70;
+    private int rectWidth = 250;
+    private int rectHeight = 100;
 
     PlayerManager PM;
 

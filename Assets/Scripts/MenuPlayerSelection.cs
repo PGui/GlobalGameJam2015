@@ -22,7 +22,7 @@ public class MenuPlayerSelection : MonoBehaviour {
 	public Vector4 boxCredits = new Vector4(500,30,10,10);
 
 	public float rectWidth = 500.0f;
-	public float rectHeight = 30.0f;
+	public float rectHeight = 70.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -91,6 +91,7 @@ public class MenuPlayerSelection : MonoBehaviour {
         Color oldColor = GUI.color;
         for (int i = 0; i < m_maxPlayers; ++i)
         {
+			/*
             if (i == 0)
             {
 				GUI.color = new Color(0.51f,0.929f,0.709f);
@@ -108,7 +109,8 @@ public class MenuPlayerSelection : MonoBehaviour {
             {
 				GUI.color = new Color(1.0f,0.890f,0.4860f);
 			}
-			
+			*/
+			GUI.color = Color.black;
 			//GUI.Box(new Rect(10.0f * ratioX, 50.0f + (i * 30.0f * ratioY), 500.0f * ratioX, 30.0f * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 			GUI.Box(new Rect(((Screen.width/4.0f) * (float)i + 100)* ratioX, Screen.height - 200.0f, rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 		}
