@@ -112,7 +112,7 @@ public class MenuPlayerSelection : MonoBehaviour {
 			*/
 			GUI.color = Color.black;
 			//GUI.Box(new Rect(10.0f * ratioX, 50.0f + (i * 30.0f * ratioY), 500.0f * ratioX, 30.0f * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
-			GUI.Box(new Rect(((Screen.width/4.0f) * (float)i + 100)* ratioX, Screen.height - 200.0f, rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
+			GUI.Box(new Rect(((Screen.width/4.0f) * (float)i + 100)* ratioX,( Screen.height - 200.0f) * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 		}
 		GUI.color = oldColor;
 
