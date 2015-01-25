@@ -24,10 +24,20 @@ public class MenuPlayerSelection : MonoBehaviour {
 	public float rectWidth = 500.0f;
 	public float rectHeight = 70.0f;
 
+	public Vector2 posP1;
+	public Vector2 posP2;
+	public Vector2 posP3;
+	public Vector2 posP4;
+
+	public Vector2 textPos;
+	public Vector2 textPos2;
+
 	// Use this for initialization
 	void Start ()
     {
        // Random.seed = (int)Time.time;
+
+		//posP1 = new Vector2(500.0f,100.0f);
 
         m_playerManager = GameObject.Find("PlayersManager").GetComponent<PlayerManager>();
         if (!m_playerManager)
@@ -89,35 +99,39 @@ public class MenuPlayerSelection : MonoBehaviour {
 		GUI.skin = mySkin;
 		mySkin.box.fontSize = (int)(fontRatio * ratioX);
         Color oldColor = GUI.color;
+
         for (int i = 0; i < m_maxPlayers; ++i)
         {
-			/*
             if (i == 0)
             {
-				GUI.color = new Color(0.51f,0.929f,0.709f);
-				
+				//GUI.color = new Color(0.51f,0.929f,0.709f);
+				GUI.color = Color.black;
+				GUI.Box(new Rect(posP1.x *ratioX , posP1.y*ratioX , rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 			}
             if (i == 1)
             {
-				GUI.color = new Color(0.709f,0.007f,0.07f);
+				GUI.color = Color.black;
+				GUI.Box(new Rect(posP2.x *ratioX , posP2.y*ratioX , rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 			}
 			if (i == 2)
             {
-				GUI.color = new Color(0.470f,0.830f,0.8940f);
+				GUI.color = Color.black;
+				GUI.Box(new Rect(posP3.x *ratioX , posP3.y*ratioX , rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 			}
 			if (i == 3)
             {
-				GUI.color = new Color(1.0f,0.890f,0.4860f);
+				GUI.color = Color.black;
+				GUI.Box(new Rect(posP4.x *ratioX , posP4.y*ratioX , rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 			}
-			*/
-			GUI.color = Color.black;
+
+			//GUI.color = Color.black;
 			//GUI.Box(new Rect(10.0f * ratioX, 50.0f + (i * 30.0f * ratioY), 500.0f * ratioX, 30.0f * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
-			GUI.Box(new Rect(((Screen.width/4.0f) * (float)i + 100)* ratioX,( Screen.height - 200.0f) * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
+			//GUI.Box(new Rect(((Screen.width/4.0f) * (float)i + 100)* ratioX,( Screen.height - 200.0f) * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 		}
 		GUI.color = oldColor;
 
-		GUI.Box(new Rect((Screen.width/2.0f - rectWidth/2.0f), Screen.height - 80.0f * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press start to Begin !");
-		GUI.Box(new Rect((Screen.width/2.0f - rectWidth/2.0f), Screen.height - 50.0f * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press B to see the Credits !");
+		GUI.Box(new Rect(textPos.x  * ratioX, textPos.y * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press start to Begin !");
+		GUI.Box(new Rect(textPos2.x * ratioX, textPos2.y * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press B to see the Credits !");
 
 			//GUI.Box(new Rect(boxCredits.x * ratioX, boxCredits.y * ratioY, boxCredits.z * ratioX, boxCredits.w * ratioY), "Press B to credits");
 

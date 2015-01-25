@@ -1,0 +1,87 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA Quadro K1100M     (ID=0xff6)
+    Vendor:   NVIDIA
+    VRAM:     1957 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.069 seconds
+desktop: 1920x1080 60Hz; virtual: 4500x1313 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Victor\Documents\HolyBox\HolyBox_Data\Managed\System.Core.dll (this message is harmless)
+UnloadTime: 0.571465 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 382.
+Total: 1.140732 ms (FindLiveObjects: 0.023459 ms CreateObjectMapping: 0.019427 ms MarkObjects: 0.217369 ms  DeleteObjects: 0.017228 ms)
+
+UnloadTime: 0.631581 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 378.
+Total: 1.624590 ms (FindLiveObjects: 0.036289 ms CreateObjectMapping: 0.027858 ms MarkObjects: 0.329903 ms  DeleteObjects: 0.023826 ms)
+
+Joystick connected ("Controller (Xbox 360 Wireless Receiver for Windows)").
+ 
+(Filename:  Line: 1349)
+
+UnloadTime: 0.703793 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 501.
+Total: 1.778545 ms (FindLiveObjects: 0.046186 ms CreateObjectMapping: 0.038122 ms MarkObjects: 0.421909 ms  DeleteObjects: 0.026392 ms)
+
+UnloadTime: 1.709265 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 387.
+Total: 8.959439 ms (FindLiveObjects: 0.067080 ms CreateObjectMapping: 0.035189 ms MarkObjects: 0.454533 ms  DeleteObjects: 7.182361 ms)
+
+UnloadTime: 0.634514 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 384.
+Total: 1.733458 ms (FindLiveObjects: 0.035922 ms CreateObjectMapping: 0.028591 ms MarkObjects: 0.390385 ms  DeleteObjects: 0.010630 ms)
+
+UnloadTime: 0.602256 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 387.
+Total: 1.680307 ms (FindLiveObjects: 0.037389 ms CreateObjectMapping: 0.028225 ms MarkObjects: 0.381221 ms  DeleteObjects: 0.010263 ms)
+
+UnloadTime: 0.640378 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 508.
+Total: 1.798339 ms (FindLiveObjects: 0.047652 ms CreateObjectMapping: 0.033723 ms MarkObjects: 0.467363 ms  DeleteObjects: 0.026392 ms)
+
+UnloadTime: 0.637813 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 393.
+Total: 4.087502 ms (FindLiveObjects: 0.023459 ms CreateObjectMapping: 0.012463 ms MarkObjects: 0.196109 ms  DeleteObjects: 3.341187 ms)
+
+UnloadTime: 0.221401 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 390.
+Total: 0.474327 ms (FindLiveObjects: 0.015028 ms CreateObjectMapping: 0.008797 ms MarkObjects: 0.137459 ms  DeleteObjects: 0.003299 ms)
+
+UnloadTime: 0.182913 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 393.
+Total: 0.407980 ms (FindLiveObjects: 0.009530 ms CreateObjectMapping: 0.008064 ms MarkObjects: 0.122797 ms  DeleteObjects: 0.002565 ms)
+

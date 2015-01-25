@@ -39,6 +39,9 @@ public class ObjectiveManager : MonoBehaviour
 	BigBall scriptBigBalls;
 	Football scriptFoot;
 
+	public AudioClip[] soundStart;
+	bool playOnceSoundStart = false;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -103,6 +106,13 @@ public class ObjectiveManager : MonoBehaviour
 					break;
 				}
 				timeElapsedObjectiveText += Time.deltaTime;
+
+				if(!playOnceSoundStart)
+				{
+					playOnceSoundStart = true;
+					GetComponent<AudioSource>().PlayOneShot(soundStart[Random.Range(0,soundStart.Length)]);
+
+				}
 			}
 			else
 			{
@@ -126,6 +136,8 @@ public class ObjectiveManager : MonoBehaviour
 					Debug.Log("Objective error");
 					break;
 				}
+
+				playOnceSoundStart = false;
 			}
 		}
 

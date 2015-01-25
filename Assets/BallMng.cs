@@ -6,6 +6,8 @@ public class BallMng : MonoBehaviour {
 	Vector2 direction;
 	public float speed {get; set;}
 
+	public AudioClip[] balleOsierSounds;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -23,6 +25,9 @@ public class BallMng : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
+
+		GetComponent<AudioSource>().PlayOneShot(balleOsierSounds[Random.Range(0,balleOsierSounds.Length)]);
+
 		//Cat and mices
 		if (coll.gameObject.layer == LayerMask.NameToLayer("wall"))
 		{

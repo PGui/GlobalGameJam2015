@@ -130,6 +130,7 @@ public class PlayerManager : MonoBehaviour
 				for (int i = 0; i < m_players.Length; ++i)
 				{
 						m_players[i].GetComponent<Control>().enabled = false;
+						m_players[i].rigidbody2D.velocity = Vector2.zero;
 						m_players[i].GetComponentInChildren<MeshRenderer>().enabled = true;
 				}
 			}

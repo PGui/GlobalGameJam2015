@@ -8,6 +8,8 @@ public class Cages : MonoBehaviour
 
 	GameObject[] m_players;
 
+	public AudioClip[] soundsGoal;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,6 +26,7 @@ public class Cages : MonoBehaviour
 	{
 		if(!enterOnce && other.gameObject.tag == "football")
 		{
+			GetComponent<AudioSource>().PlayOneShot(soundsGoal[Random.Range(0,soundsGoal.Length)]);
 			enterOnce = true;
 			if(gameObject.tag == "campRouge")
 			{

@@ -29,6 +29,12 @@ public class Control : MonoBehaviour
 
 	bool facingRight = false;
 
+	public AudioClip soundDash;
+	public AudioClip [] soundSteps;
+
+	public float timeBetweenSteps = 0.5f;
+	float timeElapsedSteps = 0.0f;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -53,9 +59,20 @@ public class Control : MonoBehaviour
 			m_dashDirection.Normalize();
 			//rigidbody2D.velocity = Vector2.zero;
 			//Debug.Log("---Dashing---");
+			GetComponent<AudioSource>().PlayOneShot(soundDash);
 		}
 
 		transform.position.Set(transform.position.x,transform.position.y,transform.position.y +100);
+
+
+		if(timeElapsedSteps >= timeBetweenSteps && rigidbody2D.velocity.sqrMagnitude > 1.0f && !m_isDashing)
+		{
+			timeElapsedSteps = 0.0f;
+			GetComponent<AudioSource>().PlayOneShot(soundSteps[Random.Range(0,soundSteps.Length)]);
+			///
+		}
+
+		timeElapsedSteps+= Time.deltaTime;
 	}
 
 	void FixedUpdate()
