@@ -27,6 +27,8 @@ public class Control : MonoBehaviour
 
 	public Transform rendererTransform;
 
+	bool facingRight = false;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -42,6 +44,7 @@ public class Control : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{ 
+		//Dash
 		if(m_canDash && Input.GetButtonDown("P" + m_playerID.ToString() + " A") && !m_isDashing && !GetComponent<Dead>().isDead)
 		{
 			m_isDashing = true;
@@ -62,13 +65,16 @@ public class Control : MonoBehaviour
 			//Get the stick input
 			m_moveInput = new Vector2(Input.GetAxis("P" + m_playerID.ToString() + " LHorizontal"), Input.GetAxis("P" + m_playerID.ToString() + " LVertical"));
 
-			//Dash
-			if(m_moveInput.x >= 0.2)
+
+			if(m_moveInput.x > 0.5)
 			{
+				facingRight = false;
 				rendererTransform.localScale = new Vector2(1,1);
 			}
-			else if(m_moveInput.x <= 0.2)
+
+			if(m_moveInput.x < -0.5)
 			{
+				facingRight = true;
 				rendererTransform.localScale = new Vector2 (-1,1);
 			}
 
