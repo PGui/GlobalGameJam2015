@@ -31,6 +31,7 @@ public class MenuPlayerSelection : MonoBehaviour {
 
 	public Vector2 textPos;
 	public Vector2 textPos2;
+	public Vector2 textPos3;
 
 	// Use this for initialization
 	void Start ()
@@ -65,6 +66,11 @@ public class MenuPlayerSelection : MonoBehaviour {
 			}
 		}
 */
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{ 
+			Application.Quit();
+		}
 
         ratioX = Screen.width/  1920.0f;
         ratioY = Screen.width / 1080.0f ;
@@ -128,10 +134,10 @@ public class MenuPlayerSelection : MonoBehaviour {
 			//GUI.Box(new Rect(10.0f * ratioX, 50.0f + (i * 30.0f * ratioY), 500.0f * ratioX, 30.0f * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 			//GUI.Box(new Rect(((Screen.width/4.0f) * (float)i + 100)* ratioX,( Screen.height - 200.0f) * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
 		}
-		GUI.color = oldColor;
 
 		GUI.Box(new Rect(textPos.x  * ratioX, textPos.y * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press start to Begin !");
 		GUI.Box(new Rect(textPos2.x * ratioX, textPos2.y * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press B to see the Credits !");
+		GUI.Box(new Rect(textPos3.x  * ratioX, textPos3.y * ratioY, rectWidth * ratioX, rectHeight * ratioY), "Press A to be ready ! !");
 
 			//GUI.Box(new Rect(boxCredits.x * ratioX, boxCredits.y * ratioY, boxCredits.z * ratioX, boxCredits.w * ratioY), "Press B to credits");
 

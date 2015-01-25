@@ -35,6 +35,8 @@ public class Control : MonoBehaviour
 	public float timeBetweenSteps = 0.5f;
 	float timeElapsedSteps = 0.0f;
 
+	public GameObject fxDash;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -60,6 +62,7 @@ public class Control : MonoBehaviour
 			//rigidbody2D.velocity = Vector2.zero;
 			//Debug.Log("---Dashing---");
 			GetComponent<AudioSource>().PlayOneShot(soundDash);
+			GameObject.Instantiate(fxDash, new Vector2(transform.position.x, transform.position.y - 1.0f),Quaternion.identity);
 		}
 
 		transform.position.Set(transform.position.x,transform.position.y,transform.position.y +100);
