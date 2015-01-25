@@ -5,13 +5,17 @@ public class CameraControl : MonoBehaviour {
 
 	private GameObject[] m_players;
 
+	public float cameraSpeed = 10.0f;
+
+	Vector2 previousAvgPoint;
+
 	// Use this for initialization
 	void Start () {
-
+		previousAvgPoint = Vector2.zero;
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		if(m_players != null && m_players.Length > 0)
 		{
@@ -25,7 +29,22 @@ public class CameraControl : MonoBehaviour {
 
 			}
 			avgPos /= m_players.Length;
-			this.transform.position = avgPos;
+
+
+			Vector2 CamToAvgPoint = new Vector2 (avgPos.x - this.transform.position.x, avgPos.y - this.transform.position.y );
+			float distance = CamToAvgPoint.magnitude;
+			if(CamToAvgPoint.magnitude > 0.1 && avgPos != previousAvgPoint)
+			{
+				CamToAvgPoint.Normalize();
+				rigidbody2D.velocity = CamToAvgPoint * cameraSpeed * distance;
+			}
+			else
+			{
+				rigidbody2D.velocity *= 0.3f;
+			}
+
+			previousAvgPoint = avgPos;
+			//this.transform.position = avgPos;
 		}
 		else
 		{
