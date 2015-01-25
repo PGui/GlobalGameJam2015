@@ -27,6 +27,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject m_playerWinner { get; set; }
 
+	public int scoreNeededToWin = 20000;
 
     void Awake()
     {
@@ -110,7 +111,31 @@ public class PlayerManager : MonoBehaviour
         
 
         //Check every frame if there is a winner
-		/*
+		if (m_players != null && m_inGame && m_needIDGeneration == false && !m_playerVictory)
+		{
+			for (int i = 0; i < m_players.Length; ++i)
+			{
+				if (m_players != null && m_players[i].GetComponent<PlayerScore>().m_playerScore >= scoreNeededToWin)
+				{
+					m_players[i].GetComponent<PlayerScore>().m_playerScore = scoreNeededToWin;
+					m_playerVictory = true;
+					m_playerWinner = m_players[i];
+				}
+			}
+
+			if(m_playerVictory)
+			{
+				//GameObject.Find("ObjectiveManager").SetActive(false);
+				GameObject.Find("ObjectiveText").SetActive(false);
+				for (int i = 0; i < m_players.Length; ++i)
+				{
+						m_players[i].GetComponent<Control>().enabled = false;
+						m_players[i].GetComponentInChildren<MeshRenderer>().enabled = true;
+				}
+			}
+
+		}
+		   /*
         if (m_inGame && m_needIDGeneration == false && !m_playerVictory)
         {
             for (int i = 0; i < m_players.Length; ++i)
@@ -137,9 +162,7 @@ public class PlayerManager : MonoBehaviour
         }
 
     }
-
-   
-
+	
     public void ResetToMenu()
     {
         m_inGame = false;

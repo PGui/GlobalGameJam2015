@@ -88,6 +88,31 @@ public class InGameInterface : MonoBehaviour {
             }
         }
         */
+
+		if (PM.m_playerVictory)
+		{
+			for (int i = 0; i < PM.GetMaxPlayer() ; ++i)
+			{
+				if (Input.GetButtonDown("P" + (i + 1).ToString() + " Start") && PM.GetPlayerTab()[i])
+				{
+					PM.ResetToMenu();
+					GameObject.Destroy(GameObject.Find("PlayersManager"));
+					Application.LoadLevel("Menu");
+				}
+				if (Input.GetButtonDown("P" + (i + 1).ToString() + " Start") && PM.GetPlayerTab()[i])
+				{
+					PM.ResetToMenu();
+					GameObject.Destroy(GameObject.Find("PlayersManager"));
+					Application.LoadLevel("Menu");
+				}
+				if (Input.GetButtonDown("P" + (i + 1).ToString() + " Start") && PM.GetPlayerTab()[i])
+				{
+					PM.ResetToMenu();
+					GameObject.Destroy(GameObject.Find("PlayersManager"));
+					Application.LoadLevel("Menu");
+				}
+			}
+		}
 	}
 
     void OnGUI()
@@ -95,7 +120,7 @@ public class InGameInterface : MonoBehaviour {
         GUI.skin = mySkin;
         Color oldColor = GUI.color;
 
-		PM.m_playerVictory = false;
+		PM.m_playerVictory = PM.m_playerVictory;
 
 		if (!PM.m_playerVictory && m_players != null)
         {
@@ -129,11 +154,12 @@ public class InGameInterface : MonoBehaviour {
         }
         else
         {
-            //GUI.Box(new Rect(Screen.width/2 - 300.0f/2, Screen.height/2 - 60.0f/2, 300.0f, 60.0f), "Player " + GameObject.Find("PlayersManager").GetComponent<PlayerManager>().m_playerWinner.GetComponent<PlayerID>().GetPlayerID().ToString() + " Win !!");
-            //GUI.Box(new Rect(Screen.width / 2 - 300.0f / 2, Screen.height / 2 - 100.0f / 2 + 100.0f, 300.0f, 100.0f), "Start to Restart\nB to Menu");
-        
-        }
-
+			if(m_players != null)
+			{
+            	GUI.Box(new Rect(Screen.width/2 - 300.0f/2, Screen.height/2 - 60.0f/2, 300.0f, 60.0f), "Player " + GameObject.Find("PlayersManager").GetComponent<PlayerManager>().m_playerWinner.GetComponent<PlayerID>().GetPlayerID().ToString() + " Win !!");
+            	GUI.Box(new Rect(Screen.width / 2 - 300.0f / 2, Screen.height / 2 - 100.0f / 2 + 100.0f, 300.0f, 100.0f), "Start to Menu");
+			}
+		}
     }
 
 	IEnumerator GetPlayers() 

@@ -45,7 +45,7 @@ public class MenuPlayerSelection : MonoBehaviour {
         //Update ratio
         //ratioX = 1366.0f / Screen.width ;
         //ratioY =  768.0f / Screen.height;
-		GameObject[] m_playerManagers = GameObject.FindGameObjectsWithTag("pm");
+		/*GameObject[] m_playerManagers = GameObject.FindGameObjectsWithTag("pm");
 		if(m_playerManagers.Length >=2)
 		{
 			//Too muck playerManagerdeleting
@@ -54,7 +54,7 @@ public class MenuPlayerSelection : MonoBehaviour {
 				GameObject.Destroy(m_playerManagers[i]);
 			}
 		}
-
+*/
 
         ratioX = Screen.width/  1920.0f;
         ratioY = Screen.width / 1080.0f ;

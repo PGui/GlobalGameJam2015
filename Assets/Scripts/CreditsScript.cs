@@ -16,16 +16,19 @@ public class CreditsScript : MonoBehaviour {
 			if (Input.GetButtonUp("P" + (i + 1).ToString() + " A"))
 			{
 				Application.LoadLevel("Menu");
+				GameObject.Destroy(GameObject.Find("PlayersManager"));
 			}
 			
 			if (Input.GetButton("P" + (i + 1).ToString() + " Start"))
 			{
 				Application.LoadLevel("Menu");
+				GameObject.Destroy(GameObject.Find("PlayersManager"));
 			}
 
 			if (Input.GetButtonUp("P" + (i + 1).ToString() + " B"))
 			{
 				Application.LoadLevel("Menu");
+				GameObject.Destroy(GameObject.Find("PlayersManager"));
 			}
 
 		}
