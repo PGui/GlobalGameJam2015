@@ -13,11 +13,13 @@ public class MenuPlayerSelection : MonoBehaviour {
     private float ratioX = 1920.0f / Screen.width ;
     private float ratioY =  1080.0f / Screen.height;
 
-    float baseGuiFontSize = 0.0f;
+    float baseGuiFontSize = 5.0f;
 
     public float fontRatio = 5.0f;
 
     public GUISkin mySkin;
+
+	public Vector4 boxCredits = new Vector4(500,30,10,10);
 
 	// Use this for initialization
 	void Start ()
@@ -68,7 +70,7 @@ public class MenuPlayerSelection : MonoBehaviour {
     void OnGUI()
     {
         GUI.skin = mySkin;
-        //myStyle.fontSize = (int)(baseGuiFontSize * fontRatio);
+		mySkin.box.fontSize = (int)(fontRatio * ratioX);
         Color oldColor = GUI.color;
         for (int i = 0; i < m_maxPlayers; ++i)
         {
@@ -90,12 +92,14 @@ public class MenuPlayerSelection : MonoBehaviour {
                 GUI.color = Color.green;
             }
 
-            GUI.Box(new Rect(10.0f * ratioX, 50.0f + (i * 30.0f * ratioY), 200.0f * ratioX, 20.0f * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
+            GUI.Box(new Rect(10.0f * ratioX, 50.0f + (i * 30.0f * ratioY), 500.0f * ratioX, 30.0f * ratioY), "Player " + (i + 1).ToString() + " " + (m_playerManager.GetPlayerTab()[i] ? "Ready !" : " not Ready."));
         }
         GUI.color = oldColor;
 
-        GUI.Box(new Rect(10.0f * ratioX, Screen.height - 50.0f * ratioY, 200.0f * ratioX, 30.0f * ratioY), "Press start to Begin");
+        GUI.Box(new Rect(10.0f * ratioX, Screen.height - 50.0f * ratioY, 500.0f * ratioX, 30.0f * ratioY), "Press start to Begin");
     
+		//GUI.Box(new Rect(boxCredits.x * ratioX, boxCredits.y * ratioY, boxCredits.z * ratioX, boxCredits.w * ratioY), "Press B to credits");
+
     
     }
 

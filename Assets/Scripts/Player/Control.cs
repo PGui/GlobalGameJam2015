@@ -19,11 +19,13 @@ public class Control : MonoBehaviour
 	private Vector2 m_moveInput;
 
 	public bool m_canDash {get; set;}
-	private bool m_isDashing {get; set;}
+	public bool m_isDashing {get; set;}
 	public float dashTime = 1.0f;
 	public float m_forceDash = 500.0f;
 	private float timeElapsedDash = 0.0f;
 	private Vector2 m_dashDirection;
+
+	public Transform rendererTransform;
 
 	// Use this for initialization
 	void Start () 
@@ -61,7 +63,14 @@ public class Control : MonoBehaviour
 			m_moveInput = new Vector2(Input.GetAxis("P" + m_playerID.ToString() + " LHorizontal"), Input.GetAxis("P" + m_playerID.ToString() + " LVertical"));
 
 			//Dash
-
+			if(m_moveInput.x >= 0.2)
+			{
+				rendererTransform.localScale = new Vector2(1,1);
+			}
+			else if(m_moveInput.x <= 0.2)
+			{
+				rendererTransform.localScale = new Vector2 (-1,1);
+			}
 
 			//Si le player bouge
 			if(m_moveInput.SqrMagnitude() > 0.2f && !m_isDashing)
